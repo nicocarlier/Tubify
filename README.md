@@ -26,13 +26,13 @@ Informative error messages will be shown if the video cannot be processed or if 
 ## Wireframes
 
 ### Homepage: 
-![Alt text](image.png)
+<img src='./assets/image.png'> </img>
 
 ### Once a url has been entered:
-![Alt text](image-1.png)
+<img src='./assets/image-1.png'> </img>
 
 ### Select a transformation:
-![Alt text](image-2.png)
+<img src='./assets/image-2.png'> </img>
 
 ## Technologies, Libraries, APIs
 The project leverages the following technologies:
