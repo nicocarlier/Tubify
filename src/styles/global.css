@@ -8,11 +8,18 @@
     font-family: 'Poppins', sans-serif; /* Use the imported 'Poppins' font, fall back to sans-serif */
 }
 
-.hidden * {
+/* .hidden * {
     display: none;
     /* padding: 0; */
-}
+/* } */
 
 .js-container {
     width: 100%;
+}
+
+.found {
+    position: absolute;
+    top: 0;
+    /* color: black; */
+    padding: 5% 0%;
 }

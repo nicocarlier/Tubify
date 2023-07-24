@@ -5,14 +5,20 @@ function search(){
         searchForm.addEventListener('submit', (e) => {
             e.preventDefault();
             // searchForm.classList.add('hidden');
-            let url = document.querySelector('.search-bar input').value;
+            const url = document.querySelector('.search-bar input').value;
 
+            // let videoId
             let res;
             if (url.includes('https://www.youtube.com/watch?v=')){
 
+
                 const startIndex = url.indexOf("v=") + 2;
                 const videoId = url.slice(startIndex);
-                res = videoId; // can make an object
+
+                console.log(videoId, "video id is");
+
+                res = [url, videoId];
+                
 
 
                 const outer = document.querySelector('.youtube-search');
@@ -22,8 +28,10 @@ function search(){
 
             }else {
                 res = "not valid url";
+                // videoId = "not a valid url"
             }
             resolve(res);
+            // resolve(videoId)
         });
     });
 }
