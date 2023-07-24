@@ -2,27 +2,38 @@
 
 .container {
     width: 100%;
-    min-height: 100vh;
-    padding: 5%;
+    min-height: 50vh;
+    padding: 3% 5% 5% 5%;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-
-
-    background-image: linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)), url(AI.png);
+    background-color: #030B32;
+    /* background-image: linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)), url(AI.png); */
     background-position: center;
     background-size: cover;
+
+    transition: height 3s linear 0s;
 }
 
+/* 
+.container:active {  
+     transition: height 3s linear 0s; 
+    min-height: 100vh;
+ }
+ */
+
+
+ 
 h1 {
     color: whitesmoke;
-    padding: 10% 0%;
+    padding: 5% 0%;
     font-size: 60px;
     font-family: 'Poppins', sans-serif;
+    
 }
 
-.container div {
+.youtube-search {
     display: flex;
     justify-content: center;
     width: 100%
@@ -32,11 +43,11 @@ h1 {
 .search-bar {
     width: 100%;
     max-width: 700px;
-    background: rgba(255,255,255,0.2);
+    background: whitesmoke;
     display: flex;
     align-items: center;
     border-radius: 60px;
-    padding: 10px 20px;
+    padding: 5px 10px;
     backdrop-filter: blur(4px) saturate(180%);
 }
 
@@ -45,13 +56,13 @@ h1 {
     flex: 1;
     border: 0;
     outline: none;
-    padding: 24px 20px;
+    padding: 10px 20px;
     font-size: 20px;
-    color: #cac7ff;
+    color: grey
 }
 
 ::placeholder {
-    color: #cac7ff;
+    color: grey;
 }
 
 .search-bar button img{

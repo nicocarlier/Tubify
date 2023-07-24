@@ -84,38 +84,12 @@ table {
 
 
 
-/*!*********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/global.css (1) ***!
-  \*********************************************************************************************************/
-* {
-    margin: 0;
-    padding: 0; 
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Use the imported 'Poppins' font, fall back to sans-serif */
-}
-
-/* .hidden * {
-    display: none;
-    /* padding: 0; */
-/* } */
-
-.js-container {
-    width: 100%;
-}
-
-.found {
-    position: absolute;
-    top: 0;
-    /* color: black; */
-    padding: 5% 0%;
-}
-
 /*!***************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/text.css ***!
   \***************************************************************************************************/
 .text-block {
     width: 400px;
-    height: 600px;
+    height: 80px;
     position: absolute;
     right: 10%;
     top: 20%;
@@ -127,6 +101,13 @@ table {
     display: flex;
     flex-direction: column;
 }
+
+.text-block:active {
+    height: 600px;
+    transition: height 0.3s linear 0s;
+}
+
+
 .title {
     width: 100%;
     height: 30px;
@@ -137,6 +118,11 @@ table {
     justify-content: center;
     align-items: center;
 }
+
+/* .title:active {
+    height: 600px;
+} */
+
 .text-block h2 {
     font-size: 20px;
     font-weight: 500;
@@ -170,31 +156,211 @@ table {
     border-radius: 5px;
 }
 
+/*!*****************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/gptBar.css ***!
+  \*****************************************************************************************************/
+#chat-log {
+    width: 400px;
+    height: 200px;
+    background-color: black;
+    border-radius: 20px;
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+#chat-log h2 {
+    padding: 30px;
+    font-size: 20px;
+}
+
+
+
+ #chat-log div {
+    display: flex;
+    justify-content: center;
+    width: 100%
+} 
+
+ .prompt-bar {
+    width: 100%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.686);
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    padding: 5px 10px;
+    backdrop-filter: blur(4px) saturate(180%);
+} 
+
+.prompt-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 20px;
+    color: #cac7ff;
+}
+
+
+.prompt-bar ::placeholder {
+    /* color: #cac7ff; */
+    color: black;
+}
+
+
+.prompt-bar button img{
+    width: 25px;
+} 
+
+ .prompt-bar button {
+    border: 0px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background: #58629b;
+    cursor: pointer;
+}  
+/*!****************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/explanation-block.css ***!
+  \****************************************************************************************************************/
+.explanation-block * {
+    font-family: 'Poppins', sans-serif;
+}
+
+.explanation-block {
+    width: 100%;
+    min-height: 50vh;
+    padding: 2% 4% 4% 5%;
+    /* padding: 5%; */
+    display: flex;
+    flex-direction: column;
+
+    justify-content: start;
+    align-items: center;
+
+    background-color: white;
+
+    background-position: center;
+    background-size: cover;
+
+
+}
+
+.explanation-block h2 {
+    padding: 30px;
+    font-size: 35px;
+
+}
+
+.steps {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    /* margin: 20px; */
+
+    padding: 10px;
+    margin: 10px;
+
+    background-color: #50505274;
+    border: 1px solid black;
+    border-radius: 20px;
+
+}
+
+.step img {
+    height: 100px;
+    width: auto;
+    margin: 10px;
+}
+
+.step h3 {
+    padding: 15px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.step p {
+    height: 60px;
+}
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/global.css (1) ***!
+  \*********************************************************************************************************/
+* {
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Use the imported 'Poppins' font, fall back to sans-serif */
+}
+
+.hidden * {
+    display: none;
+ }
+
+.js-container {
+    width: 100%;
+}
+
+.found {
+    position: absolute;
+    top: 0;
+    /* color: black; */
+    padding: 5% 0%;
+}
+
+/* .transition-background {
+     transition: property duration timing delay; 
+    transition: height 2s linear 0s;
+  } 
+
+  */
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap'); */
 .container {
   width: 100%;
-  min-height: 100vh;
-  padding: 5%;
+  min-height: 50vh;
+  padding: 3% 5% 5% 5%;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-image: linear-gradient(rgba(0, 8, 51, 0.9), rgba(0, 8, 51, 0.9)), url(AI.png);
+  background-color: #030B32;
+  /* background-image: linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)), url(AI.png); */
   background-position: center;
   background-size: cover;
+  transition: height 3s linear 0s;
 }
 
+/* 
+.container:active {  
+     transition: height 3s linear 0s; 
+    min-height: 100vh;
+ }
+ */
 h1 {
   color: whitesmoke;
-  padding: 10% 0%;
+  padding: 5% 0%;
   font-size: 60px;
   font-family: "Poppins", sans-serif;
 }
 
-.container div {
+.youtube-search {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -203,11 +369,11 @@ h1 {
 .search-bar {
   width: 100%;
   max-width: 700px;
-  background: rgba(255, 255, 255, 0.2);
+  background: whitesmoke;
   display: flex;
   align-items: center;
   border-radius: 60px;
-  padding: 10px 20px;
+  padding: 5px 10px;
   backdrop-filter: blur(4px) saturate(180%);
 }
 
@@ -216,13 +382,13 @@ h1 {
   flex: 1;
   border: 0;
   outline: none;
-  padding: 24px 20px;
+  padding: 10px 20px;
   font-size: 20px;
-  color: #cac7ff;
+  color: grey;
 }
 
 ::placeholder {
-  color: #cac7ff;
+  color: grey;
 }
 
 .search-bar button img {

@@ -8,10 +8,9 @@
     font-family: 'Poppins', sans-serif; /* Use the imported 'Poppins' font, fall back to sans-serif */
 }
 
-/* .hidden * {
+.hidden * {
     display: none;
-    /* padding: 0; */
-/* } */
+ }
 
 .js-container {
     width: 100%;
@@ -23,3 +22,10 @@
     /* color: black; */
     padding: 5% 0%;
 }
+
+/* .transition-background {
+     transition: property duration timing delay; 
+    transition: height 2s linear 0s;
+  } 
+
+  */

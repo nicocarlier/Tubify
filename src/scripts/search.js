@@ -15,16 +15,20 @@ function search(){
                 const startIndex = url.indexOf("v=") + 2;
                 const videoId = url.slice(startIndex);
 
-                console.log(videoId, "video id is");
+                // console.log(videoId, "video id is");
 
                 res = [url, videoId];
-                
 
+                // const attentionBlock = document.querySelector('.container');
+                // attentionBlock.classList.active = true;
 
                 const outer = document.querySelector('.youtube-search');
+                const inner = document.querySelector('.search-bar');
 
-                // outer.classList.add(('hidden'));
-                outer.remove();
+
+                outer.classList.add(('hidden'));
+                inner.classList.remove(('search-bar'));
+                outer.classList.remove(('youtube-search'));
 
             }else {
                 res = "not valid url";
