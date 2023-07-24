@@ -15,6 +15,7 @@ function GPT(port){
         `;
         chatLog.appendChild(messageElement);
         chatLog.scrollTop = chatLog.scrollHeight;
+        
         fetch(`http://localhost:${port}`, {
             method: 'POST',
             headers: {

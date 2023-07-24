@@ -1,28 +1,23 @@
 // import Gpt from './scripts/gpt.js';
-
 import Search from './scripts/search.js';
+//import getTranscript from './scripts/getTranscript.js'; //? refactor to use this
 
-Search().then((res) => {
-    console.log(res);
+//!works
+Search().then((vidId) => {
+    fetch(`http://localhost:5001/transcript/${vidId}`)
+    .then(transcript => transcript.json()) // You need to parse the response as JSON
+    .then(data => { console.log(data.fullText);
+  })
+  .catch(err => {
+    console.error('Error: ', err);
+  });
 }).catch((error) => {
-    console.error(error);
-});
+    console.error("something is wrong with the url message", error);
+})
 
 
-// const backendPort = 5001;
-// const container = document.querySelector('.js-container');
-
-
+//? refactor to use this
 // Search()
-
-// console.log(Search())
-
-
-
-//runpy with the id
-
-
-
-// Gpt(backendPort)
-
-
+//   .then(videoID => getTranscript(videoID[2]))
+//   .then(transcript => console.log(transcript))
+//   .catch(error => console.error("Error: ", error));

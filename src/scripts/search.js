@@ -12,12 +12,13 @@ function search(){
 
                 const startIndex = url.indexOf("v=") + 2;
                 const videoId = url.slice(startIndex);
-                res = [url, videoId]; // can make an object
+                res = videoId; // can make an object
 
 
                 const outer = document.querySelector('.youtube-search');
-                outer.classList.add(('hidden'));
-                // youtube-search
+
+                // outer.classList.add(('hidden'));
+                outer.remove();
 
             }else {
                 res = "not valid url";

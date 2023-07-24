@@ -10,6 +10,7 @@
 
 .hidden * {
     display: none;
+    /* padding: 0; */
 }
 
 .js-container {

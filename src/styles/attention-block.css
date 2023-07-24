@@ -1,3 +1,4 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap'); */
 
 .container {
     width: 100%;
@@ -18,6 +19,7 @@ h1 {
     color: whitesmoke;
     padding: 10% 0%;
     font-size: 60px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .container div {
