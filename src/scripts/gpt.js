@@ -2,7 +2,7 @@ function GPT(port){
     
     const chatLog = document.getElementById('chat-log');
     const message = document.getElementById('message');
-    const form = document.querySelector('form');
+    const form = document.querySelector('#chat-log form');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const messageText = message.value;
@@ -52,3 +52,14 @@ function GPT(port){
 
 
 export default GPT;
+
+
+// text script => please add punciton where it makes sense =>
+
+
+
+// GPT(text, selection) = fun{
+//     intro = "you are a highly writer and I want you convert a youtube traojnigh
+    
+//     based the theme: \n \n" + selection + \n\n + the transcript: \n + text
+// }

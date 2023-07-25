@@ -2,7 +2,7 @@
 
 .container {
     width: 100%;
-    min-height: 50vh;
+    height: 50vh;
     padding: 3% 5% 5% 5%;
     display: flex;
     flex-direction: column;
@@ -13,16 +13,13 @@
     background-position: center;
     background-size: cover;
 
-    transition: height 3s linear 0s;
+    transition: height 1.4s linear 0s, background 1.4s ease-in-out;
 }
-
-/* 
-.container:active {  
-     transition: height 3s linear 0s; 
-    min-height: 100vh;
- }
- */
-
+  
+  .container.fullscreen {
+    height: 100vh; /* New height */
+    background: rgb(115, 115, 202);
+  }
 
  
 h1 {
@@ -59,6 +56,9 @@ h1 {
     padding: 10px 20px;
     font-size: 20px;
     color: grey
+}
+.search-bar input:focus {
+    background-color: whitesmoke;
 }
 
 ::placeholder {

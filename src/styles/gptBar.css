@@ -1,24 +1,31 @@
 #chat-log {
-    width: 400px;
-    height: 200px;
-    background-color: black;
-    border-radius: 20px;
     position: absolute;
-    left: 10%;
+    width: 30%;
+    height: 200px;
+    background-color: transparent;
+    border-radius: 20px;
+
+    left: 35%;
     top: 30%;
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
     align-items: center;
-    color: white;
+    color: rgb(0, 0, 0);
     font-family: 'Poppins', sans-serif;
+
+    overflow: auto;
+    padding: 15px;
+ 
 }
 
 #chat-log h2 {
     padding: 30px;
-    font-size: 20px;
+    font-size: 25px;
+    color: white;
+    font-weight: 600;
 }
-
 
 
  #chat-log div {
@@ -45,13 +52,13 @@
     outline: none;
     padding: 5px 10px;
     font-size: 20px;
-    color: #cac7ff;
+    color: rgba(255, 255, 255, 0.686);
 }
 
 
 .prompt-bar ::placeholder {
-    /* color: #cac7ff; */
-    color: black;
+
+    color: rgba(255, 255, 255, 0.686);
 }
 
 
@@ -67,3 +74,27 @@
     background: #58629b;
     cursor: pointer;
 }  
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 5px;
+}
+
+.message--sent {
+    background-color: white;
+    padding: 15px 15px;
+
+}
+
+.message--received {
+    background-color: aquamarine;
+    padding: 15px 15px;
+}
+
+.message--text {
+    padding: 20px;
+}

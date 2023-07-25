@@ -1,38 +1,37 @@
 
 function textBox(text){
 
-    const jsContainer = document.querySelector('.js-container');
-    
-    let textBlock = document.createElement('div');
-    textBlock.classList.add('text-block');
-    
-    jsContainer.append(textBlock);
-    // document.append(textBlock);
-    
-    let title = document.createElement('div');
-    title.classList.add('title');
-    textBlock.append(title)
+    //! fill in the text box
+    transcript = document.querySelector('.scrollbox-inner p')
+    transcript.innerHTML = text;
 
-    let scrollBox = document.createElement('div');
-    scrollBox.classList.add('scrollbox');
-    textBlock.append(scrollBox);
-    
-    
-    let heading = document.createElement('h2');
-    heading.innerHTML = "Full Transcript:";
-    
-    title.append(heading);
-    
-    let innerScroll = document.createElement('div');
-    innerScroll.classList.add('scrollbox-inner');
-    
-    scrollBox.append(innerScroll);
-    
-    let textBody = document.createElement('p');
-    textBody.innerHTML = `${text}`;
-    
-    innerScroll.append(textBody);
+    //! Event handler code
 
+    let textBlock = document.querySelector('.text-block');
+    let title = document.querySelector('.title');
+    let arrowLeft = document.getElementById('left-arrow');
+    let arrowRight = document.getElementById('right-arrow');
+
+    title.addEventListener("click", function(event) {
+        event.preventDefault();
+        showTranscript(textBlock);
+    });
+
+    function showTranscript(textBlock) {
+        if (textBlock.classList.contains('revealed')) {
+            textBlock.classList.remove('revealed');
+            arrowLeft.style.transform = "rotate(0deg)";
+            arrowRight.style.transform = "rotate(0deg)";
+            arrowLeft.src="./assets/down-arrow.svg";
+            arrowRight.src="./assets/down-arrow.svg";
+        } else {
+            textBlock.classList.add('revealed');
+            arrowLeft.style.transform = "rotate(180deg)";
+            arrowRight.style.transform = "rotate(-180deg)";
+            arrowLeft.src="./assets/down-arrow.svg";
+            arrowRight.src="./assets/down-arrow.svg";
+        }
+    }
     
 }
 

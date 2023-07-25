@@ -19,8 +19,8 @@ function search(){
 
                 res = [url, videoId];
 
-                // const attentionBlock = document.querySelector('.container');
-                // attentionBlock.classList.active = true;
+                const attentionBlock = document.querySelector('.container');
+                attentionBlock.classList.add('fullscreen');
 
                 const outer = document.querySelector('.youtube-search');
                 const inner = document.querySelector('.search-bar');
