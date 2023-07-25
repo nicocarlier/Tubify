@@ -98,17 +98,16 @@
             </div>
         <div>  -->
 
-            <div class="settings" >
+            <div class="settings hidden" id="settings">
 
-                <div id="border-area">
-
+                <div class="border-area">
                     
                     <h2>Select a Transformation Style</h2>
                     
                     <div class="btn-group">
                         <div class="left-btn-group">
                             <button>Summary</button>
-                            <button>Explain for Dummies </button>
+                            <button>Explaination for Dummies </button>
                             <button>Key Points</button>
                             <button>TLDR</button>
                             
@@ -116,8 +115,8 @@
                         
                         <div>
                             <div class="right-btn-group">
-                                <button>Short Essay</button>
-                                <button>Longer Essay</button>
+                                <button>Essay</button>
+                                <button>Article</button>
                                 <button>Rap Song</button>
                                 <button>Poem</button>
                                 <!-- <button>Filler</button> -->
@@ -129,16 +128,16 @@
 
                     <div class="custom-prompt">
                         <form action="" class="prompt-bar">
-                            <input type="text" name="message" id="message" placeholder="Enter a custom transformation">
+                            <input type="text" name="message" class="message" placeholder="Enter a custom transformation">
                             <button><img src="./assets/search.png" alt=""></button>
                         </form>
                     </div>
 
                 </div>
 
-                <div class="transcript">
+                <div class="transcript hidden" id="transcript">
 
-                    <!-- <div class="text-block revealed">
+                    <div class="text-block revealed">
                         <div class="title">
                           <form>
                             <img id="left-arrow" src="./assets/down-arrow.svg">
@@ -151,13 +150,13 @@
                             <p>An Error Has Occurred!</p>
                           </div>
                         </div>
-                      </div> -->
+                      </div>
                 </div>
 
 
             </div>
 
-            <button id="generate-button">
+            <button class="generate-button hidden" id="generate-button">
                 <img src="./assets/go-arrow.svg">
                     Generate Text
                 <img src="./assets/go-arrow.svg">

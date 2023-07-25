@@ -1,6 +1,6 @@
 
 
-#generate-button {
+.generate-button {
     position: absolute;
     left: calc(50vw - 200px);
     bottom: 100px;
@@ -22,7 +22,7 @@
     width: 60%;
 } */
 
-#generate-button img {
+.generate-button img {
     height: 20px;
     padding: 0 10px;
 }

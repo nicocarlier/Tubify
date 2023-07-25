@@ -66,14 +66,14 @@ function textBoxOld(text){
     function showTranscript(textBlock) {
         if (textBlock.classList.contains('revealed')) {
             textBlock.classList.remove('revealed');
-            arrowLeft.style.transform = "rotate(0deg)";
-            arrowRight.style.transform = "rotate(0deg)";
+            arrowLeft.style.transform = "rotate(180deg)";
+            arrowRight.style.transform = "rotate(-180deg)";
             arrowLeft.src="./assets/down-arrow.svg";
             arrowRight.src="./assets/down-arrow.svg";
         } else {
             textBlock.classList.add('revealed');
-            arrowLeft.style.transform = "rotate(180deg)";
-            arrowRight.style.transform = "rotate(-180deg)";
+            arrowLeft.style.transform = "rotate(0deg)";
+            arrowRight.style.transform = "rotate(0deg)";
             arrowLeft.src="./assets/down-arrow.svg";
             arrowRight.src="./assets/down-arrow.svg";
         }

@@ -48,42 +48,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/*!******************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/nav-bar.css ***!
-  \******************************************************************************************************/
-.js-container {
-    width: 100%;
-}
-
-.nav-container {
-    width: 100%;
-    height: 70px;
-    padding-right: 15px;
-    padding-left: 15px;
-    display: flex;
-    justify-content: center;
-    background-color: rgb(79, 113, 190);
-}
-
-.nav {
-    width: 80%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#logo {
-    height: 70%;
-}
-
-.nav div * {
-    padding: 5px 10px;
-}
-
-
-
-
 /*!****************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/explanation-block.css ***!
   \****************************************************************************************************************/
@@ -163,10 +127,20 @@ table {
     font-family: 'Poppins', sans-serif; /* Use the imported 'Poppins' font, fall back to sans-serif */
 }
 
-.hidden * {
+/* .hidden *, .hidden {
     display: none;
     background-color: transparent;
- }
+ } */
+
+
+ #settings.hidden *,
+ #transcript.hidden *,
+ #generate-button.hidden,
+ #search.hidden {
+  display: none;
+  /* background-color: none; */
+  background: none
+}
 
 .js-container {
     width: 100%;
@@ -199,19 +173,13 @@ table {
     width: 1200px;
 }
 
-#border-area {
+.border-area {
     width: 100%;
     border-radius: 8px;
     border: solid black;
-
-    /* position: absolute;
-    left: 100px;
-    top: 200px; */
-    /* font-family: 'Poppins', sans-serif; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: red; */
     width: 550px;
     height: 420px;
 }
@@ -220,11 +188,9 @@ table {
     font-size: 25px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    /* color: black; */
     padding: 15px;
 }
 .btn-group {
-    /* background: #008000; */
     height: 200px;
     width: 100%;
     display: flex;
@@ -232,7 +198,6 @@ table {
 }
 
 .left-btn-group, .right-btn-group {
-    /* background-color: antiquewhite; */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -271,7 +236,7 @@ table {
     align-items: center;
 } 
 
-#message {
+.message {
     background-color: transparent;
     /* flex: 1; */
     width: 90%;
@@ -397,7 +362,7 @@ table {
   \**************************************************************************************************************/
 
 
-#generate-button {
+.generate-button {
     position: absolute;
     left: calc(50vw - 200px);
     bottom: 100px;
@@ -419,9 +384,15 @@ table {
     width: 60%;
 } */
 
-#generate-button img {
+.generate-button img {
     height: 20px;
     padding: 0 10px;
+}
+/*!********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/selecting.css ***!
+  \********************************************************************************************************/
+.btn-group .selected {
+    background-color: red;
 }
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
