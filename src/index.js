@@ -46,23 +46,35 @@ const port = "5001";
 const settingsBlock = document.querySelector('.settings');
 const transcriptBlock = document.querySelector('.transcript');
 const generateButton = document.querySelector('.generate-button');
+const github = document.querySelector('.github');
+const linkedin = document.querySelector('.linkedin');
+const attentionBlock = document.querySelector('.container');
+const outer = document.querySelector('.youtube-search');
+const inner = document.querySelector('.search-bar');
+const backButton = document.querySelector('#back-button');
 
 //! ACTUAL LOGIC  ==================
 
 Search().then((vidID) => {
-
-  const attentionBlock = document.querySelector('.container');
-  const outer = document.querySelector('.youtube-search');
-  const inner = document.querySelector('.search-bar');
-  const backButton = document.querySelector('#back-button');
   
+  //fullscreen mode
   attentionBlock.classList.add('fullscreen');
   outer.classList.add('hidden');
   inner.classList.remove('search-bar');
   outer.classList.remove('youtube-search');
   backButton.classList.remove('hidden');
 
-  fetch(`http://localhost:5001/extract/${vidID}`)
+  // dark-to-light mode:
+  backButton.classList.remove('dark');
+  backButton.classList.add('light');
+  github.classList.remove('dark');
+  github.classList.add('light');
+  linkedin.classList.remove('dark');
+  linkedin.classList.add('light');
+
+  // https://cors-proxy-serv-d5884527e532.herokuapp.com/
+  fetch(`https://cors-proxy-serv-d5884527e532.herokuapp.com/transcript/${vidID}`)
+  // fetch(`http://localhost:5001/extract/${vidID}`)
 
   .then(response => response.text())
 
@@ -72,6 +84,7 @@ Search().then((vidID) => {
     settingsBlock.classList.remove('hidden');
     transcriptBlock.classList.remove('hidden');
     generateButton.classList.remove('hidden');
+
     
     textBox(data);
     // AiEditBar();
@@ -170,10 +183,29 @@ generate.addEventListener("click", (e) => {
     transcriptBlock.classList.add('hidden');
     generateButton.classList.add('hidden');
 
+    //! switch to "found mode"
+    attentionBlock.classList.add('found');
+    let message = docuemnt.querySelector('.back-button p')
+    message.innerHTML = "Edit Prompt"
+
     generateResponse(prompt, transcript, port);
     //! add some animation here while waiting
 
   }
 });
 //!
-  
+
+//! Back Button event listener
+backButton.addEventListener("click", (e) => {
+  if (attentionBlock.classList.contains('found')){
+    //sends you back to the promt page!
+    let message = docuemnt.querySelector('.back-button p')
+    message.innerHTML = "Edit Prompt"
+  }else {
+    //! switch out of "found mode" to home page
+    attentionBlock.classList.remove('found');
+    let message = document.querySelector('.back-button p')
+    message.innerHTML = "Edit Url"
+    backButton.classList.add('hidden')
+  }
+});
