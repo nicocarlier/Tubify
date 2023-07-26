@@ -17,7 +17,8 @@
  #settings.hidden *,
  #transcript.hidden *,
  #generate-button.hidden,
- #search.hidden {
+ #search.hidden,
+ #AI-output.hidden {
   display: none;
   /* background-color: none; */
   background: none
