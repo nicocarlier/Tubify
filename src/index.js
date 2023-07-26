@@ -54,11 +54,13 @@ Search().then((vidID) => {
   const attentionBlock = document.querySelector('.container');
   const outer = document.querySelector('.youtube-search');
   const inner = document.querySelector('.search-bar');
+  const backButton = document.querySelector('#back-button');
   
   attentionBlock.classList.add('fullscreen');
-  outer.classList.add(('hidden'));
-  inner.classList.remove(('search-bar'));
-  outer.classList.remove(('youtube-search'));
+  outer.classList.add('hidden');
+  inner.classList.remove('search-bar');
+  outer.classList.remove('youtube-search');
+  backButton.classList.remove('hidden');
 
   fetch(`http://localhost:5001/extract/${vidID}`)
 

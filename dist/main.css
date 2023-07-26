@@ -127,17 +127,12 @@ table {
     font-family: 'Poppins', sans-serif; /* Use the imported 'Poppins' font, fall back to sans-serif */
 }
 
-/* .hidden *, .hidden {
-    display: none;
-    background-color: transparent;
- } */
-
-
  #settings.hidden *,
  #transcript.hidden *,
  #generate-button.hidden,
  #search.hidden,
- #AI-output.hidden {
+ #AI-output.hidden,
+ #back-button.hidden {
   display: none;
   /* background-color: none; */
   background: none
@@ -150,16 +145,103 @@ table {
 .found {
     position: absolute;
     top: 0;
-    /* color: black; */
     padding: 5% 0%;
 }
 
-/* .transition-background {
-     transition: property duration timing delay; 
-    transition: height 2s linear 0s;
-  } 
 
-  */
+
+.back-button {
+    position: absolute;
+    top: 280px;
+    left: 150px;
+    height: 50px;
+    width: 180px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    align-items: center;
+    /* background: rgb(214, 119, 214); */
+}
+
+.back-button:hover {
+    box-shadow: 2px 2px 2px 2px;
+}
+
+.back-button img {
+    height: 130%;
+    width: auto;
+}
+
+.back-button p {
+    background-color: aqua;
+    color: white;
+    font-family: 'Poppins', sans-serif; 
+    font-size: 30px;
+}
+
+
+
+
+.top-row {
+    position: absolute;
+    top: 5vh;
+    left: 5vw;
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 70px;
+    padding: 10px;
+    /* position: absolute;
+    top: 5vh;
+    left: 50px; */
+    /* background: green; */
+    border-radius: 10px;
+}
+.logo img {
+    height: 100%
+}
+
+.personal-links {
+    /* position: absolute;
+    top: 5vh;
+    right: 50px; */
+    height: 80px;
+    width: 190px;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    align-items: center;
+
+    /* background: rgb(214, 119, 214); */
+
+}
+
+.personal-links img {
+    height: 100%;
+}
+
+.github img {
+    border-radius: 10px;
+}
+
+.github, .linkedin {
+    height: 100%;
+    width: auto;
+    border-radius: 10px;;
+    /* box-shadow: 2px 2px 2px 2px; */
+}
+
+.github:hover, .linkedin:hover {
+    /* box-shadow: white; */
+    box-shadow: 2px 2px 2px 2px;
+}
+
 /*!*******************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/settings.css ***!
   \*******************************************************************************************************/
