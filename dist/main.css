@@ -124,10 +124,13 @@ table {
     margin: 0;
     padding: 0; 
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Use the imported 'Poppins' font, fall back to sans-serif */
+    /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    /* font-family: 'Poppins', sans-serif;  */
 }
 .js-container {
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    width: 100%;
 }
 
  #settings.hidden *,
@@ -136,14 +139,11 @@ table {
  #search.hidden,
  #AI-output.hidden,
  #back-button.hidden,
- #url-error.hidden {
+ #url-error.hidden,
+ #s-bar.hidden,
+ #main-heading.hidden {
   display: none;
-  /* background-color: none; */
   background: none
-}
-
-.js-container {
-    width: 100%;
 }
 
 .found {
@@ -152,33 +152,36 @@ table {
     padding: 5% 0%;
 }
 
-
 /* NAV STUFF */
-
-
 .back-button {
     position: absolute;
-    top: calc(8vh + 60px);
-    left: 150px;
-    height: 50px;
-    width: 170px;
+    top: 15vh;
+    /* top: calc(8vh + 60px); */
+    /* left: 150px; */
+    left: 5vw;
+    height: 75px;
+    /* height: 50px; */
+    /* width: 90px; */
     padding: 10px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* background-color: aqua; */
+    z-index: 2;
 }
 
 
 .back-button img {
-    height: 130%;
-    width: auto;
+    height: 100%;
+    /* width: auto; */
 }
 
 .back-button p {
     color: white;
     font-family: 'Poppins', sans-serif; 
     font-size: 30px;
+    z-index: 2;
 }
 
 .top-row {
@@ -189,6 +192,7 @@ table {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 2;
 }
 
 .logo {
@@ -199,7 +203,7 @@ table {
 
 
 .logo img {
-    height: 100%
+    height: 100%;
 }
 
 .personal-links {
@@ -221,12 +225,11 @@ table {
 .github, .linkedin {
     height: 100%;
     width: auto;
-    border-radius: 10px;;
+    border-radius: 10px;
 }
 
 .github.dark:hover, 
-.linkedin.dark:hover, 
-.back-button.dark:hover {
+.linkedin.dark:hover{
     box-shadow: 0 3px 10px rgb(255 255 255);
     cursor: pointer;
 }
@@ -240,7 +243,7 @@ table {
 }
 
 .logo:hover,
-.back-button.light:hover {
+.back-button:hover {
     cursor: pointer;
 }
 
@@ -316,6 +319,7 @@ input:-internal-autofill-selected {
     padding: 5px;
     margin: 5px;
     font-size: 15px;
+    border-radius: 8px;
 }
 
 /* CUSTOM PROMPT BAR */
@@ -334,18 +338,25 @@ input:-internal-autofill-selected {
     max-width: 700px;
     background: white;
     border: solid 1px rgba(0, 0, 0, 0.686);
+    backdrop-filter: blur(4px) saturate(180%);
     /* background: rgba(255, 255, 255, 0.686); */
     border-radius: 30px;
     padding: 5px 5px;
-    backdrop-filter: blur(4px) saturate(180%);
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 15px;
 } 
 
+.btn-group .selected {
+    background-color: #3d8cb0;
+    color: white;
+    font-weight: 400;
+}
+
 .prompt-bar.selected {
-    background: red;
+    /* background: red; */
+    background-color: #3d8cb0;
     border: 2px solid rgba(0, 0, 0, 0.686);
 }
 
@@ -394,7 +405,7 @@ input:-internal-autofill-selected {
     width: 100%;
     height: 50px;
     background-color: white;
-    padding: 0 20 0 20px;
+    padding: 0 40 0 40px;
     border-radius: 8px;
     border: solid black;
     font-family: 'Poppins', sans-serif;
@@ -402,7 +413,7 @@ input:-internal-autofill-selected {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    line-height: 1.2em;
     transition: height 0.5s linear 0s;
 }
 
@@ -421,13 +432,6 @@ input:-internal-autofill-selected {
 }
 
 
-/* .title {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
 .title form {
     width: 100%;
     display: flex;
@@ -439,9 +443,7 @@ input:-internal-autofill-selected {
     font-size: 25px;
     font-weight: 500;
     padding: 15px;
-    /* color: blue; */
 }
-
 
 #left-arrow, #right-arrow {
     height: 15px;
@@ -449,10 +451,9 @@ input:-internal-autofill-selected {
     transition: transform 0.5s;
 }
 
-
 .scrollbox {
     overflow: auto;
-    padding-right: 15px;
+    /* padding-right: 15px; */
     visibility: hidden;
 }
 
@@ -480,7 +481,8 @@ input:-internal-autofill-selected {
     position: absolute;
     left: calc(50vw - 200px);
     bottom: 100px;
-    background-color: green;
+    /* background-color: green; */
+    background-color: rgba(255, 255, 255, 0.35);
     height: 90px;
     width: 400px;
     border: solid black;
@@ -493,31 +495,31 @@ input:-internal-autofill-selected {
 .generate-button img {
     height: 20px;
     padding: 0 10px;
-    color: black;
+    /* color: black; */
 }
-
+/* 
 .generate-button.nothing-selected {
     background-color: rgba(0,128,0, 0.586);
+    background-color: rgba(255, 255, 255, 0.35);
     color: rgba(0, 0, 0, 0.586);
     border-color: rgba(0, 0, 0, 0.586);
-}
+} */
 
 .generate-button.nothing-selected img {
     color: rgba(0, 0, 0, 0.586);
+}
+.generate-button.something-selected {
+
+    background-color: white;
 }
 
 .generate-button:hover{
     cursor: pointer;
 }
 
-.generate-button.nothing-selected:hover {
+.generate-button.something-selected:hover {
     box-shadow: 0 3px 10px rgb(0,0,0);
-}
-/*!********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/selecting.css ***!
-  \********************************************************************************************************/
-.btn-group .selected {
-    background-color: red;
+    /* background-color: white; */
 }
 /*!**********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/ai-response.css ***!
@@ -525,22 +527,23 @@ input:-internal-autofill-selected {
 
 .AI-output {
     position: absolute;
-    left: calc(50vw - 500px);
-    top: calc(50vh - 250px);
-    width: 1000px;
-    height: 700px;
+    left: 20vw;
+    top: 10vw;
+    width: 60vw;
+    height: 80vh;
 
     border: solid black;
     border-radius: 8px;
 
-    background-color: antiquewhite;
+    background-color: white;
 
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 16.5px;
+    font-size: 19px;
     line-height: 1.5em;
 
-    padding: 25px;
+    /* padding: 25px; */
+    padding: 60px;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
@@ -553,20 +556,27 @@ input:-internal-autofill-selected {
     /* background: blue; */
 }
 
+.ai-response {
+    padding-top: 20px;
+}
+
 
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
 .container {
+  /* position: absolute; */
   width: 100%;
-  height: 50vh;
-  padding: 3% 5% 5% 5%;
+  height: 100vh;
+  /* height: 100vh; */
+  padding: 17% 5%;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: space-evenly;
   align-items: center;
-  /* background-color: #030B32; */
-  background-image: linear-gradient(rgba(0, 8, 51, 0.9), rgba(0, 8, 51, 0.9)), url(AI.png);
+  background-color: #030B32;
+  z-index: 0;
+  background-image: linear-gradient(rgba(0, 8, 51, 0.7), rgba(0, 8, 51, 0.7)), url(AI.png);
   background-position: center;
   background-size: cover;
   transition: height 1.4s linear 0s, background 1.4s ease-in-out;
@@ -574,12 +584,12 @@ input:-internal-autofill-selected {
 
 .container.fullscreen {
   height: 100vh; /* New height */
-  background: rgb(115, 115, 202);
+  /* background: rgb(115, 115, 202); */
 }
 
 h1 {
   color: whitesmoke;
-  padding: 5% 0%;
+  /* padding: 8% 0%; */
   font-size: 60px;
   font-family: "Poppins", sans-serif;
 }

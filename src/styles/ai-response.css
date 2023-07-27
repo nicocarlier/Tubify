@@ -1,22 +1,23 @@
 
 .AI-output {
     position: absolute;
-    left: calc(50vw - 500px);
-    top: calc(50vh - 250px);
-    width: 1000px;
-    height: 700px;
+    left: 20vw;
+    top: 10vw;
+    width: 60vw;
+    height: 80vh;
 
     border: solid black;
     border-radius: 8px;
 
-    background-color: antiquewhite;
+    background-color: white;
 
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 16.5px;
+    font-size: 19px;
     line-height: 1.5em;
 
-    padding: 25px;
+    /* padding: 25px; */
+    padding: 60px;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
@@ -27,5 +28,9 @@
     padding: 0 20 20 20px;
     font-size: 30px;
     /* background: blue; */
+}
+
+.ai-response {
+    padding-top: 20px;
 }
 

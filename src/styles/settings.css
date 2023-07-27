@@ -48,6 +48,7 @@
     padding: 5px;
     margin: 5px;
     font-size: 15px;
+    border-radius: 8px;
 }
 
 /* CUSTOM PROMPT BAR */
@@ -66,18 +67,25 @@
     max-width: 700px;
     background: white;
     border: solid 1px rgba(0, 0, 0, 0.686);
+    backdrop-filter: blur(4px) saturate(180%);
     /* background: rgba(255, 255, 255, 0.686); */
     border-radius: 30px;
     padding: 5px 5px;
-    backdrop-filter: blur(4px) saturate(180%);
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 15px;
 } 
 
+.btn-group .selected {
+    background-color: #3d8cb0;
+    color: white;
+    font-weight: 400;
+}
+
 .prompt-bar.selected {
-    background: red;
+    /* background: red; */
+    background-color: #3d8cb0;
     border: 2px solid rgba(0, 0, 0, 0.686);
 }
 

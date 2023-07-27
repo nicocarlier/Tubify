@@ -2,7 +2,7 @@
     width: 100%;
     height: 50px;
     background-color: white;
-    padding: 0 20 0 20px;
+    padding: 0 40 0 40px;
     border-radius: 8px;
     border: solid black;
     font-family: 'Poppins', sans-serif;
@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    line-height: 1.2em;
     transition: height 0.5s linear 0s;
 }
 
@@ -29,13 +29,6 @@
 }
 
 
-/* .title {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
 .title form {
     width: 100%;
     display: flex;
@@ -47,9 +40,7 @@
     font-size: 25px;
     font-weight: 500;
     padding: 15px;
-    /* color: blue; */
 }
-
 
 #left-arrow, #right-arrow {
     height: 15px;
@@ -57,10 +48,9 @@
     transition: transform 0.5s;
 }
 
-
 .scrollbox {
     overflow: auto;
-    padding-right: 15px;
+    /* padding-right: 15px; */
     visibility: hidden;
 }
 

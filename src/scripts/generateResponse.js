@@ -23,6 +23,10 @@ function generateResponse(prompt, transcript, port){
         responseEle.innerHTML = response;
         const aiBlock = document.querySelector('#AI-output');
         aiBlock.classList.remove('hidden');
+
+        // let header = document.querySelector('.AI-output h2');
+        header.innerHTML = key;
+
     })
     .catch(error => {
         console.error('There has been a problem with fetch operation:', error);

@@ -4,7 +4,8 @@
     position: absolute;
     left: calc(50vw - 200px);
     bottom: 100px;
-    background-color: green;
+    /* background-color: green; */
+    background-color: rgba(255, 255, 255, 0.35);
     height: 90px;
     width: 400px;
     border: solid black;
@@ -17,23 +18,29 @@
 .generate-button img {
     height: 20px;
     padding: 0 10px;
-    color: black;
+    /* color: black; */
 }
-
+/* 
 .generate-button.nothing-selected {
     background-color: rgba(0,128,0, 0.586);
+    background-color: rgba(255, 255, 255, 0.35);
     color: rgba(0, 0, 0, 0.586);
     border-color: rgba(0, 0, 0, 0.586);
-}
+} */
 
 .generate-button.nothing-selected img {
     color: rgba(0, 0, 0, 0.586);
+}
+.generate-button.something-selected {
+
+    background-color: white;
 }
 
 .generate-button:hover{
     cursor: pointer;
 }
 
-.generate-button.nothing-selected:hover {
+.generate-button.something-selected:hover {
     box-shadow: 0 3px 10px rgb(0,0,0);
+    /* background-color: white; */
 }

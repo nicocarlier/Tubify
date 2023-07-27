@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
-
 * {
     margin: 0;
     padding: 0; 
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Use the imported 'Poppins' font, fall back to sans-serif */
+    /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    /* font-family: 'Poppins', sans-serif;  */
 }
 .js-container {
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    width: 100%;
 }
 
  #settings.hidden *,
@@ -17,14 +19,11 @@
  #search.hidden,
  #AI-output.hidden,
  #back-button.hidden,
- #url-error.hidden {
+ #url-error.hidden,
+ #s-bar.hidden,
+ #main-heading.hidden {
   display: none;
-  /* background-color: none; */
   background: none
-}
-
-.js-container {
-    width: 100%;
 }
 
 .found {
@@ -33,33 +32,36 @@
     padding: 5% 0%;
 }
 
-
 /* NAV STUFF */
-
-
 .back-button {
     position: absolute;
-    top: calc(8vh + 60px);
-    left: 150px;
-    height: 50px;
-    width: 170px;
+    top: 15vh;
+    /* top: calc(8vh + 60px); */
+    /* left: 150px; */
+    left: 5vw;
+    height: 75px;
+    /* height: 50px; */
+    /* width: 90px; */
     padding: 10px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* background-color: aqua; */
+    z-index: 2;
 }
 
 
 .back-button img {
-    height: 130%;
-    width: auto;
+    height: 100%;
+    /* width: auto; */
 }
 
 .back-button p {
     color: white;
     font-family: 'Poppins', sans-serif; 
     font-size: 30px;
+    z-index: 2;
 }
 
 .top-row {
@@ -70,6 +72,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 2;
 }
 
 .logo {
@@ -80,7 +83,7 @@
 
 
 .logo img {
-    height: 100%
+    height: 100%;
 }
 
 .personal-links {
@@ -102,12 +105,11 @@
 .github, .linkedin {
     height: 100%;
     width: auto;
-    border-radius: 10px;;
+    border-radius: 10px;
 }
 
 .github.dark:hover, 
-.linkedin.dark:hover, 
-.back-button.dark:hover {
+.linkedin.dark:hover{
     box-shadow: 0 3px 10px rgb(255 255 255);
     cursor: pointer;
 }
@@ -121,7 +123,7 @@
 }
 
 .logo:hover,
-.back-button.light:hover {
+.back-button:hover {
     cursor: pointer;
 }
 
