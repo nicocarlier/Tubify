@@ -4,15 +4,11 @@
     position: absolute;
     left: calc(50vw - 200px);
     bottom: 100px;
-
     background-color: green;
-
     height: 90px;
     width: 400px;
-
     border: solid black;
     border-radius: 8px;
-
     font-size: 30px;
     font-weight: 600;
     color: black;
@@ -25,18 +21,19 @@
 }
 
 .generate-button.nothing-selected {
-    /* color: green */
     background-color: rgba(0,128,0, 0.586);
     color: rgba(0, 0, 0, 0.586);
     border-color: rgba(0, 0, 0, 0.586);
 }
 
 .generate-button.nothing-selected img {
-    /* color: green */
-    /* background-color: rgba(0,128,0, 0.686); */
     color: rgba(0, 0, 0, 0.586);
 }
 
-/* .generate-button img:last-child {
-    height: 10px;
-} */
+.generate-button:hover{
+    cursor: pointer;
+}
+
+.generate-button.nothing-selected:hover {
+    box-shadow: 0 3px 10px rgb(0,0,0);
+}

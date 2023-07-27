@@ -1,8 +1,7 @@
 function generateResponse(prompt, transcript, port){
-
     const passIn = prompt + transcript;
-
-    fetch(`http://localhost:${port}`, {
+    // fetch(`http://localhost:${port}`, {
+    fetch("https://tubify-be02a8d8ea61.herokuapp.com/", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -17,7 +16,6 @@ function generateResponse(prompt, transcript, port){
         return res.json();
     })
     .then(data => {
-        
         let response = data.choices[0].message.content;
         let header = document.querySelector('.AI-output h2');
         let responseEle = document.querySelector('.ai-response');
@@ -27,7 +25,7 @@ function generateResponse(prompt, transcript, port){
         aiBlock.classList.remove('hidden');
     })
     .catch(error => {
-        console.error('There has been a problem with your fetch operation:', error);
+        console.error('There has been a problem with fetch operation:', error);
     });
 }
 

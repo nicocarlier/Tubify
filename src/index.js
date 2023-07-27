@@ -4,11 +4,25 @@ import textBox from './scripts/textBox.js';
 // import textBoxOld from './scripts/textBoxOld.js';
 import makePrompt from './scripts/makePrompt.js';
 import generateResponse from './scripts/generateResponse.js';
+import twoToOne from './scripts/twoToOne.js';
+import oneToTwo from './scripts/oneToTwo.js';
+
+
 const port = "5001";
 
+let pageNum = 1;
+
+// const searchForm = document.querySelector('.search-bar');
+
+
+// let urlError = document.querySelector('.url-error');
+// urlError.classList.remove('hidden');
 
 
 //!  PAGE #2 SANDOX ===============
+
+
+// oneToTwo();
 
 // let settingsBlock = document.querySelector('.settings');
 // settingsBlock.classList.remove('hidden');
@@ -56,39 +70,30 @@ const backButton = document.querySelector('#back-button');
 //! ACTUAL LOGIC  ==================
 
 Search().then((vidID) => {
+
+  pageNum = 2;
   
-  //fullscreen mode
-  attentionBlock.classList.add('fullscreen');
-  outer.classList.add('hidden');
-  inner.classList.remove('search-bar');
-  outer.classList.remove('youtube-search');
-  backButton.classList.remove('hidden');
-
-  // dark-to-light mode:
-  backButton.classList.remove('dark');
-  backButton.classList.add('light');
-  github.classList.remove('dark');
-  github.classList.add('light');
-  linkedin.classList.remove('dark');
-  linkedin.classList.add('light');
-
-  // https://cors-proxy-serv-d5884527e532.herokuapp.com/
-  fetch(`https://cors-proxy-serv-d5884527e532.herokuapp.com/transcript/${vidID}`)
-  // fetch(`http://localhost:5001/extract/${vidID}`)
+  // fetch(`http://localhost:5001/transcript/${vidID}`) //! (Local fetch)
+  fetch(`https://tubify-be02a8d8ea61.herokuapp.com/transcript/${vidID}`)
 
   .then(response => response.text())
 
   .then(data => {
-    
-    //! show page elements
-    settingsBlock.classList.remove('hidden');
-    transcriptBlock.classList.remove('hidden');
-    generateButton.classList.remove('hidden');
+    if(data === "no transcript!"){
+      // console.log("bad url!!")
+      let urlError = document.querySelector('.url-error');
+      urlError.classList.remove('hidden');
+      //! warn user...
+    }else{
+      oneToTwo();
+      //! show page elements
+      settingsBlock.classList.remove('hidden');
+      transcriptBlock.classList.remove('hidden');
+      generateButton.classList.remove('hidden');
+  
+      textBox(data);
+    }
 
-    
-    textBox(data);
-    // AiEditBar();
-    // Gpt(5001);
   })
   .catch(err => {
     console.error('Something went wrong with the fetch: ', err)});
@@ -185,7 +190,7 @@ generate.addEventListener("click", (e) => {
 
     //! switch to "found mode"
     attentionBlock.classList.add('found');
-    let message = docuemnt.querySelector('.back-button p')
+    let message = document.querySelector('.back-button p')
     message.innerHTML = "Edit Prompt"
 
     generateResponse(prompt, transcript, port);
@@ -196,16 +201,30 @@ generate.addEventListener("click", (e) => {
 //!
 
 //! Back Button event listener
+// const settings = document.querySelector('.settings');
 backButton.addEventListener("click", (e) => {
-  if (attentionBlock.classList.contains('found')){
-    //sends you back to the promt page!
-    let message = docuemnt.querySelector('.back-button p')
-    message.innerHTML = "Edit Prompt"
-  }else {
-    //! switch out of "found mode" to home page
-    attentionBlock.classList.remove('found');
-    let message = document.querySelector('.back-button p')
-    message.innerHTML = "Edit Url"
-    backButton.classList.add('hidden')
+  // if (!settings.classList.contains('hidden')){
+    if (pageNum === 2){
+
+
+    twoToOne();
+
+    //!hide page 2 eles
+    const settingsBlock = document.querySelector('#settings');
+    const transcriptBlock = document.querySelector('.transcript');
+    const generateButton = document.querySelector('.generate-button');
+    settingsBlock.classList.add('hidden');
+    transcriptBlock.classList.add('hidden');
+    generateButton.classList.add('hidden');
+
+    pageNum = 1;
+
+  }else if (pageNum === 3){
+    // threeToTwo();
+    // //! switch out of "found mode" to home page
+    // attentionBlock.classList.remove('found');
+    // let message = document.querySelector('.back-button p')
+    // message.innerHTML = "Edit Url"
+    // backButton.classList.add('hidden')
   }
 });

@@ -7,13 +7,17 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif; /* Use the imported 'Poppins' font, fall back to sans-serif */
 }
+.js-container {
+    font-family: 'Poppins', sans-serif;
+}
 
  #settings.hidden *,
  #transcript.hidden *,
  #generate-button.hidden,
  #search.hidden,
  #AI-output.hidden,
- #back-button.hidden {
+ #back-button.hidden,
+ #url-error.hidden {
   display: none;
   /* background-color: none; */
   background: none
@@ -38,7 +42,7 @@
     top: calc(8vh + 60px);
     left: 150px;
     height: 50px;
-    width: 180px;
+    width: 170px;
     padding: 10px;
     border-radius: 10px;
     display: flex;
@@ -109,13 +113,15 @@
 }
 
 .github.light:hover, 
-.linkedin.light:hover,
-.back-button.light:hover{
+.linkedin.light:hover
+/* .back-button.light:hover */
+{
     box-shadow: 0 3px 10px rgb(0,0,0);
     cursor: pointer;
 }
 
-.logo:hover {
+.logo:hover,
+.back-button.light:hover {
     cursor: pointer;
 }
 
