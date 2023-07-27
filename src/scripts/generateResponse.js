@@ -36,10 +36,20 @@ function generateResponse(prompt, transcript, key){
         const header = document.querySelector('.AI-output h2');
         const responseEle = document.querySelector('.ai-response');
         const aiBlock = document.querySelector('#AI-output');
+        const loader = document.querySelector('#ai-loader');
+        const gptLogo = document.querySelector('#gptlogo');
+        const gptHolder = document.querySelector('.gptholder');
         
         console.log(title);
         responseEle.innerHTML = response;
         header.innerHTML = title;
+
+        //! hide loader:
+        loader.classList.add('hidden');
+        loader.classList.add('hidden');
+        gptLogo.classList.add('hidden');
+        gptHolder.classList.add('hidden');
+
         aiBlock.classList.remove('hidden');
 
     })

@@ -1,0 +1,99 @@
+#ai-loader.hidden {
+    display: none;
+}
+
+.ai-loader {
+    position: absolute;
+    left: calc(50vw - 15vw);
+    top: calc(50vh - 15vw);
+    margin: auto;
+    border: 30px solid rgba(255,255,255, 0.65);;
+    border-radius: 50%;
+    border-top: 30px solid #3d8cb0;
+    width: 30vw;
+    height: 30vw;
+    animation: spinner 4s linear infinite;
+    z-index: 3;
+    /* background-color: burlywood; */
+}
+
+@keyframes spinner {
+    0% {transform: rotate(0deg); }
+    100% {transform: rotate(360deg); }
+}
+
+/* .gptholder {
+    position: absolute;
+    left: calc(50vw - 15vw + 30px);
+    top: calc(50vh - 15vw + 30px);
+    width: calc(30vw - 60px);
+    height: calc(30vw - 60px);
+    z-index: 4;
+} */
+
+#gptlogo {
+    /* margin: 50px; */
+    /* height: 130%; */
+    height: 40vw;
+    width: 40vw;
+    /* width: 130%; */
+    border-radius: 50%;
+    z-index: 5;
+}
+.gptholder{
+
+    position: absolute;
+    left: calc(50vw - 15vw + 30px);
+    top: calc(50vh - 15vw + 30px);
+    width: calc(30vw - 60px);
+    height: calc(30vw - 60px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gptholder.green {
+    /* z-index: 1; */
+    background: #74ab9c;
+    /* height: 100%; */
+    border-radius: 50%;
+    /* border: none; */
+    transition: 1.4s linear 0s, background 1.4s ease-in-out;
+
+}
+.gptholder.black {
+    background: black;
+    
+    /* height: 100%; */
+    border-radius: 50%;
+    /* border: none; */
+    transition: 1.4s linear 0s, background 1.4s ease-in-out;
+/* 
+    position: absolute;
+    left: calc(50vw - 15vw + 30px);
+    top: calc(50vh - 15vw + 30px);
+    width: calc(30vw - 60px);
+    height: calc(30vw - 60px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.gptholder.white {
+    background: #3d8cb0;
+    /* height: 100%; */
+    border-radius: 50%;
+    /* border: none; */
+    transition: 1.4s linear 0s, background 1.4s ease-in-out;
+/* 
+    position: absolute;
+    left: calc(50vw - 15vw + 30px);
+    top: calc(50vh - 15vw + 30px);
+    width: calc(30vw - 60px);
+    height: calc(30vw - 60px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+}

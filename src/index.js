@@ -7,6 +7,7 @@ import twoToOne from './scripts/twoToOne.js';
 let pageNum = 1;
 let url;
 
+
 const logo = document.querySelector('.logo');
 const attentionBlock = document.querySelector('.container');
 const settingsBlock = document.querySelector('#settings');
@@ -22,6 +23,29 @@ const secondArrow = document.querySelector('.generate-button img:last-child ');
 const buttonsArray = document.querySelector('.btn-group');
 const customPrompt = document.querySelector('.prompt-bar');
 const aiOutput = document.querySelector('#AI-output');
+const loader = document.querySelector('#ai-loader');
+const gptLogo = document.querySelector('#gptlogo');
+const gptHolder = document.querySelector('.gptholder');
+
+
+
+setInterval(colorfySpinner, 3000);
+
+function colorfySpinner(){
+  if (gptHolder.classList.contains('black')){
+    // gptLogo.src = "./assets/gpt-white.svg";
+    gptHolder.classList.remove('black');
+    gptHolder.classList.add('green');
+  }else if(gptHolder.classList.contains('green')){
+    // gptLogo.src = "./assets/gpt-white.svg";
+    gptHolder.classList.remove('green');
+    gptHolder.classList.add('white');
+  }else if(gptHolder.classList.contains('white')){
+    // gptLogo.src = "./assets/gpt-white.svg"
+    gptHolder.classList.remove('white');
+    gptHolder.classList.add('black');
+  }
+}
 
 
 searchForm.addEventListener('submit', (e) => {
@@ -140,6 +164,11 @@ generate.addEventListener("click", (e) => {
     }else{
     generateResponse(prompt, transcript);
     }
+    //! show loader:
+    loader.classList.remove('hidden');
+    loader.classList.remove('hidden');
+    gptLogo.classList.remove('hidden');
+    gptHolder.classList.remove('hidden');
   }
 });
 

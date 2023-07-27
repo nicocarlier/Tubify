@@ -22,7 +22,9 @@
  #url-error.hidden,
  #no-script.hidden,
  #s-bar.hidden,
- #main-heading.hidden {
+ #main-heading.hidden,
+ #gptholder.hidden,
+ #gptlogo.hidden {
   display: none;
   background: none
 }
