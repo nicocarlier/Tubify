@@ -1,4 +1,3 @@
-// import Search from './scripts/search.js';
 import textBox from './scripts/textBox.js';
 import makePrompt from './scripts/makePrompt.js';
 import generateResponse from './scripts/generateResponse.js';
@@ -6,19 +5,14 @@ import oneToTwo from './scripts/oneToTwo.js';
 import twoToOne from './scripts/twoToOne.js';
 
 let pageNum = 1;
+let url;
 
-const github = document.querySelector('.github');
-const linkedin = document.querySelector('.linkedin');
-const outer = document.querySelector('.youtube-search');
-const inner = document.querySelector('.search-bar');
-// const backButton = document.querySelector('#back-button');
-
+const logo = document.querySelector('.logo');
 const attentionBlock = document.querySelector('.container');
 const settingsBlock = document.querySelector('#settings');
 const transcriptBlock = document.querySelector('#transcript');
 const generateButton = document.querySelector('#generate-button');
 const backButton = document.querySelector('#back-button');
-let url;
 const urlInvalid = document.querySelector('.url-error');
 const noScript = document.querySelector('.no-script');
 const searchForm = document.querySelector('.search-bar');
@@ -28,22 +22,6 @@ const secondArrow = document.querySelector('.generate-button img:last-child ');
 const buttonsArray = document.querySelector('.btn-group');
 const customPrompt = document.querySelector('.prompt-bar');
 const aiOutput = document.querySelector('#AI-output');
-// const copyButton = document.querySelector('#copy-button');
-
-
-// twoToOne();
-
-// settingsBlock.classList.add('hidden');
-// transcriptBlock.classList.add('hidden');
-// generateButton.classList.add('hidden');
-// attentionBlock.classList.add('found');
-
-
-
-
-
-
-
 
 
 searchForm.addEventListener('submit', (e) => {
@@ -152,12 +130,11 @@ generate.addEventListener("click", (e) => {
       standard = false;
     }
     let prompt = makePrompt(key);
-
+    pageNum = 3;
     settingsBlock.classList.add('hidden');
     transcriptBlock.classList.add('hidden');
     generateButton.classList.add('hidden');
     attentionBlock.classList.add('found');
-
     if (standard){
     generateResponse(prompt, transcript, key);
     }else{
@@ -172,12 +149,10 @@ backButton.addEventListener("click", (e) => {
 
   if (pageNum === 2){
     twoToOne();
-
     settingsBlock.classList.add('hidden');
     transcriptBlock.classList.add('hidden');
     generateButton.classList.add('hidden');
     backButton.classList.add('hidden');
-
     pageNum = 1;
 
   }else if (pageNum === 3){
@@ -186,20 +161,38 @@ backButton.addEventListener("click", (e) => {
     settingsBlock.classList.remove('hidden');
     transcriptBlock.classList.remove('hidden');
     generateButton.classList.remove('hidden');
-    // attentionBlock.classList.add('found');
-
     pageNum = 2;
   }
 });
 
-const copyButton = document.getElementById("copy-button")
-copyButton.addEventListener("click", () => {
-  let copyText = aiOutput.innerHTML;
-  document.getElementById("myInput");
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-  document.execCommand("copy");
-  alert("Copied the text");
+
+logo.addEventListener("click", (e) => {
+  if (pageNum === 2){
+    twoToOne();
+    settingsBlock.classList.add('hidden');
+    transcriptBlock.classList.add('hidden');
+    generateButton.classList.add('hidden');
+    backButton.classList.add('hidden');
+    pageNum = 1;
+  }else if (pageNum === 3) {
+    aiOutput.classList.add('hidden');
+    twoToOne();
+    backButton.classList.add('hidden');
+    pageNum = 1;
+  }
+
 });
 
 
-//! Logo event listener
+const copyButton = document.getElementById("copy-button");
+const aiResponse = document.querySelector(".ai-response");
+copyButton.addEventListener("click", () => {
+  const textToCopy = aiResponse.innerHTML;
+  const tempTextArea = document.createElement("textarea");
+  tempTextArea.value = textToCopy;
+  document.body.appendChild(tempTextArea);
+  tempTextArea.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempTextArea);
+  alert("Text copied to clipboard!");
+});

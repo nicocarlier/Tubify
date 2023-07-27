@@ -119,7 +119,7 @@
 .linkedin.light:hover
 /* .back-button.light:hover */
 {
-    box-shadow: 0 3px 10px rgb(0,0,0);
+    box-shadow: 0 3px 10px rgb(255, 255, 255);
     cursor: pointer;
 }
 

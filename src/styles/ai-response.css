@@ -49,24 +49,31 @@
     border-radius: 5px;
 }
 
-#copy-button {
-    padding: 10px 20px;
-    height: 30px;
-    background-color: #4CAF50; /* for a green background */
-    color: white; /* for white text */
+#copy-button, 
+#filler-box{
+    padding: 10px;
+    height: 80px;
+    width: 80px;
+    background-color: white; 
     border: none;
-    cursor: pointer; /* to display a hand cursor on hover */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#copy-button:hover {
+    background-color: rgba(29, 25, 25, 0.15);
+    cursor: pointer;
 }
 
 #copy-button img {
-    position: relative;
-    top: 10px;
-    height: 60px;
+    height: 100%;
 }
-/* .copy-icon img {
-    height: 30px;
-} */
 
 #title-section {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }

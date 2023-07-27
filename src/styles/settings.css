@@ -89,6 +89,12 @@
     border: 2px solid rgba(0, 0, 0, 0.686);
 }
 
+.prompt-bar.selected * {
+    color: white;
+    font-weight: 400;
+
+}
+
 .message {
     background-color: transparent;
     /* flex: 1; */

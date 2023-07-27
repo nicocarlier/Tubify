@@ -239,7 +239,7 @@ table {
 .linkedin.light:hover
 /* .back-button.light:hover */
 {
-    box-shadow: 0 3px 10px rgb(0,0,0);
+    box-shadow: 0 3px 10px rgb(255, 255, 255);
     cursor: pointer;
 }
 
@@ -359,6 +359,12 @@ input:-internal-autofill-selected {
     /* background: red; */
     background-color: #3d8cb0;
     border: 2px solid rgba(0, 0, 0, 0.686);
+}
+
+.prompt-bar.selected * {
+    color: white;
+    font-weight: 400;
+
 }
 
 .message {
@@ -575,26 +581,33 @@ input:-internal-autofill-selected {
     border-radius: 5px;
 }
 
-#copy-button {
-    padding: 10px 20px;
-    height: 30px;
-    background-color: #4CAF50; /* for a green background */
-    color: white; /* for white text */
+#copy-button, 
+#filler-box{
+    padding: 10px;
+    height: 80px;
+    width: 80px;
+    background-color: white; 
     border: none;
-    cursor: pointer; /* to display a hand cursor on hover */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#copy-button:hover {
+    background-color: rgba(29, 25, 25, 0.15);
+    cursor: pointer;
 }
 
 #copy-button img {
-    position: relative;
-    top: 10px;
-    height: 60px;
+    height: 100%;
 }
-/* .copy-icon img {
-    height: 30px;
-} */
 
 #title-section {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
