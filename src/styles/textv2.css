@@ -50,7 +50,6 @@
 
 .scrollbox {
     overflow: auto;
-    /* padding-right: 15px; */
     visibility: hidden;
 }
 
@@ -61,10 +60,10 @@
 
 ::-webkit-scrollbar {
     width: 5px;
-
 }
 
 ::-webkit-scrollbar-thumb {
     background: black;
     border-radius: 5px;
+    padding-left: 20px;
 }

@@ -1,4 +1,4 @@
-import Search from './scripts/search.js';
+// import Search from './scripts/search.js';
 import textBox from './scripts/textBox.js';
 import makePrompt from './scripts/makePrompt.js';
 import generateResponse from './scripts/generateResponse.js';
@@ -18,70 +18,92 @@ const settingsBlock = document.querySelector('#settings');
 const transcriptBlock = document.querySelector('#transcript');
 const generateButton = document.querySelector('#generate-button');
 const backButton = document.querySelector('#back-button');
-//! ACTUAL LOGIC  ==================
+let url;
+const urlInvalid = document.querySelector('.url-error');
+const noScript = document.querySelector('.no-script');
+const searchForm = document.querySelector('.search-bar');
+const generate = document.querySelector('.generate-button');
+const firstArrow = document.querySelector('.generate-button img:first-child ');
+const secondArrow = document.querySelector('.generate-button img:last-child ');
+const buttonsArray = document.querySelector('.btn-group');
+const customPrompt = document.querySelector('.prompt-bar');
+const aiOutput = document.querySelector('#AI-output');
+// const copyButton = document.querySelector('#copy-button');
 
-Search().then((vidID) => {
 
-  oneToTwo();
-  pageNum = 2;
-  fetch(`https://tubify-be02a8d8ea61.herokuapp.com/transcript/${vidID}`)
-  // fetch(`http://localhost:5001/transcript/${vidID}`)
+// twoToOne();
 
-  .then(response => response.text())
+// settingsBlock.classList.add('hidden');
+// transcriptBlock.classList.add('hidden');
+// generateButton.classList.add('hidden');
+// attentionBlock.classList.add('found');
 
-  .then(data => {
-    if(data === "no transcript!"){
-      // console.log("bad url!!")
-      let urlError = document.querySelector('.url-error');
-      urlError.classList.remove('hidden');
-      //! warn user...
+
+
+
+
+
+
+
+
+searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    url = document.querySelector('.search-bar input').value;
+    
+    if (!url.includes('https://www.youtube.com/watch?v=')){
+        urlInvalid.classList.remove('hidden');
     }else{
-      //! show page elements
-      settingsBlock.classList.remove('hidden');
-      transcriptBlock.classList.remove('hidden');
-      generateButton.classList.remove('hidden');
-  
-      textBox(data);
+
+        const startIndex = url.indexOf("v=") + 2;
+        const videoId = url.slice(startIndex);
+
+        oneToTwo();
+        pageNum = 2;
+        if (!urlInvalid.classList.contains('hidden')){
+          urlInvalid.classList.add('hidden');
+        }
+
+        fetch(`https://tubify-be02a8d8ea61.herokuapp.com/transcript/${videoId}`)
+        
+        .then(response => response.text())
+
+        .then(data => {
+          if(data === "no transcript!"){
+            noScript.classList.remove('hidden');
+            twoToOne();
+            pageNum = 1;
+          }else {
+            if (!noScript.classList.contains('hidden')){
+              noScript.classList.add('hidden');
+            }
+            settingsBlock.classList.remove('hidden');
+            transcriptBlock.classList.remove('hidden');
+            generateButton.classList.remove('hidden');
+            textBox(data);
+          }
+        })
+        .catch(err => {
+            console.error('Something went wrong with the fetch: ', err)
+        })
+        .catch((error) => {     // catching search errors
+            console.error("something is wrong with the url message", error);
+        })
     }
+});
 
-  })
-  .catch(err => {
-    console.error('Something went wrong with the fetch: ', err)});
-  })
-  .catch((error) => {     // catching search errors
-    console.error("something is wrong with the url message", error);
-  })
-
-//! ACTUAL LOGIC ENDS ===============
-
-
-
-  
-let generate = document.querySelector('.generate-button');
-let firstArrow = document.querySelector('.generate-button img:first-child ');
-let secondArrow = document.querySelector('.generate-button img:last-child ');
-
-//! Buttons event listener
-let buttonsArray = document.querySelector('.btn-group');
 buttonsArray.addEventListener('click', (e) => {
   let selected = e.target;
-
   if (selected.nodeName === "BUTTON") {
-
     let formerSelection = document.querySelector('.selected');
-    // console.log(formerSelection);
-
     if (formerSelection !== null){
       formerSelection.classList.remove('selected');
     }
-
     if (formerSelection === selected){
       generate.classList.remove('something-selected');
       generate.classList.add('nothing-selected');
       firstArrow.src = "./assets/go-arrow-grey.svg"
       secondArrow.src = "./assets/go-arrow-grey.svg"
     }
-
     if (formerSelection !== selected){
       selected.classList.add('selected');
       generate.classList.remove('nothing-selected');
@@ -89,21 +111,14 @@ buttonsArray.addEventListener('click', (e) => {
       firstArrow.src = "./assets/go-arrow.svg"
       secondArrow.src = "./assets/go-arrow.svg"
     }
-
   }
 });
-//! 
 
 
-//! custom prompt event listener
-let customPrompt = document.querySelector('.prompt-bar')
+
 customPrompt.addEventListener("input", (e) => {
   let selected = e.currentTarget;
-  // let generate = document.querySelector('.generate-button');
-  // console.log(selected);
-
   let formerSelection = document.querySelector('.selected');
-    // console.log(formerSelection);
 
   if (formerSelection !== null && formerSelection !== selected){
     formerSelection.classList.remove('selected');
@@ -120,12 +135,12 @@ customPrompt.addEventListener("input", (e) => {
       secondArrow.src = "./assets/go-arrow.svg"
   } 
 });
-//!
 
-//! Generate AI Output event listener
+
+
 generate.addEventListener("click", (e) => {
-  // console.log(generate.classList);
   let key;
+  let standard = true;
   const transcript = document.querySelector('.scrollbox-inner p').innerHTML
   if (!generate.classList.contains("nothing-selected")){
     let selected = document.querySelector('.selected');
@@ -134,43 +149,30 @@ generate.addEventListener("click", (e) => {
     } else {
       selected = document.querySelector('.prompt-bar input');
       key = selected.value;
+      standard = false;
     }
     let prompt = makePrompt(key);
 
-    // backButton =
-    // console.log(backButton)
-    // if ()
-
-    // backButton
-
-    //! hide page elements
     settingsBlock.classList.add('hidden');
     transcriptBlock.classList.add('hidden');
     generateButton.classList.add('hidden');
-
-    //! switch to "found mode"
     attentionBlock.classList.add('found');
-    let message = document.querySelector('#back-button p')
-    // message.innerHTML = "Edit Prompt"
 
+    if (standard){
+    generateResponse(prompt, transcript, key);
+    }else{
     generateResponse(prompt, transcript);
-
-    // let header = document.querySelector('.AI-output h2');
-    // header.innerHTML = key;
-    //! add some animation here while waiting
-
+    }
   }
 });
-//!
 
-//! Back Button event listener
-// const settings = document.querySelector('.settings');
+
+
 backButton.addEventListener("click", (e) => {
 
-    if (pageNum === 2){
+  if (pageNum === 2){
     twoToOne();
 
-    // //!hide page 2 eles
     settingsBlock.classList.add('hidden');
     transcriptBlock.classList.add('hidden');
     generateButton.classList.add('hidden');
@@ -179,15 +181,25 @@ backButton.addEventListener("click", (e) => {
     pageNum = 1;
 
   }else if (pageNum === 3){
-    // threeToTwo();
-    // //! switch out of "found mode" to home page
-    // attentionBlock.classList.remove('found');
-    // let message = document.querySelector('.back-button p')
-    // message.innerHTML = "Edit Url"
-    // backButton.classList.add('hidden')
+
+    aiOutput.classList.add('hidden');
+    settingsBlock.classList.remove('hidden');
+    transcriptBlock.classList.remove('hidden');
+    generateButton.classList.remove('hidden');
+    // attentionBlock.classList.add('found');
+
+    pageNum = 2;
   }
 });
 
+const copyButton = document.getElementById("copy-button")
+copyButton.addEventListener("click", () => {
+  let copyText = aiOutput.innerHTML;
+  document.getElementById("myInput");
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+  document.execCommand("copy");
+  alert("Copied the text");
+});
 
 
 //! Logo event listener

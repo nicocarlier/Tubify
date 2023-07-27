@@ -34,3 +34,39 @@
     padding-top: 20px;
 }
 
+.ai-scrollBox {
+    overflow: auto;
+    /* visibility: hidden; */
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 5px;
+}
+
+#copy-button {
+    padding: 10px 20px;
+    height: 30px;
+    background-color: #4CAF50; /* for a green background */
+    color: white; /* for white text */
+    border: none;
+    cursor: pointer; /* to display a hand cursor on hover */
+}
+
+#copy-button img {
+    position: relative;
+    top: 10px;
+    height: 60px;
+}
+/* .copy-icon img {
+    height: 30px;
+} */
+
+#title-section {
+    display: flex;
+}
