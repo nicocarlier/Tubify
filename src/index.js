@@ -27,21 +27,41 @@ const loader = document.querySelector('#ai-loader');
 const gptLogo = document.querySelector('#gptlogo');
 const gptHolder = document.querySelector('.gptholder');
 
+const openModalButton = document.querySelector('.help-button');
+const closeModalButton = document.querySelector('.modal-close');
+const overlay = document.getElementById('overlay');
+const modal = document.querySelector('.modal');
 
 
-setInterval(colorfySpinner, 3000);
+//Help button:
+
+openModalButton.addEventListener('click', () => {
+  modal.classList.add('active');
+  overlay.classList.add('active');
+});
+
+closeModalButton.addEventListener('click', () => {
+  modal.classList.remove('active');
+  overlay.classList.remove('active');
+});
+
+overlay.addEventListener('click', () => {
+  modal.classList.remove('active');
+  overlay.classList.remove('active');
+})
+
+
+
+setInterval(colorfySpinner, 1600);
 
 function colorfySpinner(){
   if (gptHolder.classList.contains('black')){
-    // gptLogo.src = "./assets/gpt-white.svg";
     gptHolder.classList.remove('black');
     gptHolder.classList.add('green');
   }else if(gptHolder.classList.contains('green')){
-    // gptLogo.src = "./assets/gpt-white.svg";
     gptHolder.classList.remove('green');
     gptHolder.classList.add('white');
   }else if(gptHolder.classList.contains('white')){
-    // gptLogo.src = "./assets/gpt-white.svg"
     gptHolder.classList.remove('white');
     gptHolder.classList.add('black');
   }

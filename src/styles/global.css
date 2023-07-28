@@ -35,29 +35,52 @@
     padding: 5% 0%;
 }
 
-/* NAV STUFF */
+.help-button {
+    position: absolute;
+    top: 15vh;
+    right: 5vw;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    height: 150px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Poppins', sans-serif; 
+    font-size: 30px;
+}
+
+.help-button:hover{
+    background-color: rgba(29, 25, 25, 0.15);
+    box-shadow: 0 3px 10px rgb(255 255 255);
+    cursor: pointer;
+}
+
+.help-button img {
+    width: 100%;
+}
+
 .back-button {
     position: absolute;
     top: 15vh;
-    /* top: calc(8vh + 60px); */
-    /* left: 150px; */
     left: 5vw;
     height: 75px;
-    /* height: 50px; */
-    /* width: 90px; */
     padding: 10px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: aqua; */
     z-index: 2;
+    background-color: none;
 }
 
 
 .back-button img {
     height: 100%;
-    /* width: auto; */
 }
 
 .back-button p {

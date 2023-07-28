@@ -11,6 +11,8 @@
     <body>
         <div class="js-container">
 
+            
+
 
             <div class="top-row">
                 <div class="logo">
@@ -136,28 +138,34 @@
 
         </div>
 
+
+        <button data-modal-target="#modal" class="help-button"><img src="./assets/info-button.png">Help</button>
         
-        <div class="explanation-block">
-            <h2>How does it work?</h2>
-            <ul class="steps">
+        <div class="explanation-block modal active" id="modal">
+            <div class="modal-header">
+                <h2 class="modal-title">How does Tubify work?</h2>
+                <button data-close-button class="modal-close">&times;</button>
+            </div>
+            <ul class="steps modal-body">
                 <li class="step">
                     <img src="./assets/step1.svg" alt="">
-                    <h3>Select Video</h3>
-                    <p>Search for your YouTube video, and we will find the transcript</p>
+                    <h3>Find a Video</h3>
+                    <p >Enter the link for a YouTube video.</p>
                 </li>
                 <li class="step">
                     <img src="./assets/step2.svg" alt="">
-                    <h3>Prompt the AI</h3>
-                    <p>Choose from our list of pre-set prompts or create your own</p>
+                    <h3>Select an Option</h3>
+                    <p>Choose from the list of transformation options or create a custom prompt</p>
                 </li>
                 <li class="step">
                     <img src="./assets/step3.svg" alt="">
-                    <h3>Transform</h3>
-                    <p>Transform to get your brand new script based on the youtube video!</p>
+                    <h3>Generate</h3>
+                    <p >Hit 'generate' to transform your video to text.</p>
                 </li>
-                
             </ul>
         </div>
+
+        <div id="overlay"></div>
 
         <div class="ai-loader hidden" id="ai-loader">
             <!-- <img class="gptlogo black hidden" id="gptlogo" src="./assets/gpt-black.jpeg" > --> 

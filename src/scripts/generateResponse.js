@@ -15,6 +15,8 @@ function titleize(str){
 function generateResponse(prompt, transcript, key){
     let title = key || "Text";
     title = titleize("Generated " + title)
+
+    console.log(prompt);
     const passIn = prompt + transcript;
     // fetch(`http://localhost:${port}`, {
     fetch("https://tubify-be02a8d8ea61.herokuapp.com/", {
