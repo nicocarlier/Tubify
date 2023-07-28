@@ -50,10 +50,6 @@ overlay.addEventListener('click', () => {
   overlay.classList.remove('active');
 })
 
-
-
-setInterval(colorfySpinner, 1600);
-
 function colorfySpinner(){
   if (gptHolder.classList.contains('black')){
     gptHolder.classList.remove('black');
@@ -184,7 +180,7 @@ generate.addEventListener("click", (e) => {
     }else{
     generateResponse(prompt, transcript);
     }
-    //! show loader:
+    setInterval(colorfySpinner, 1600);
     loader.classList.remove('hidden');
     loader.classList.remove('hidden');
     gptLogo.classList.remove('hidden');
@@ -223,11 +219,13 @@ logo.addEventListener("click", (e) => {
     generateButton.classList.add('hidden');
     backButton.classList.add('hidden');
     pageNum = 1;
+    document.querySelector('.search-bar input').value = "";
   }else if (pageNum === 3) {
     aiOutput.classList.add('hidden');
     twoToOne();
     backButton.classList.add('hidden');
     pageNum = 1;
+    document.querySelector('.search-bar input').value = "";
   }
 
 });
