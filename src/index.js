@@ -212,6 +212,15 @@ backButton.addEventListener("click", (e) => {
 
 
 logo.addEventListener("click", (e) => {
+  if (pageNum === 1){
+    document.querySelector('.search-bar input').value = "";
+    if (!noScript.classList.contains('hidden')){
+      noScript.classList.add('hidden');
+    }
+    if (!urlInvalid.classList.contains('hidden')){
+      urlInvalid.classList.add('hidden');
+    }
+  }
   if (pageNum === 2){
     twoToOne();
     settingsBlock.classList.add('hidden');
