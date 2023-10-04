@@ -20,7 +20,7 @@ function getTranscript(videoId) {
         if (!res.ok) {
             throw new Error(`HTTP error! status: ${res.status}`);
         }
-        return res.json(); // You need to parse the response as JSON
+        return res.json();
     })
     .then(data => {
         return data.fullText;
