@@ -32,6 +32,20 @@ const closeModalButton = document.querySelector('.modal-close');
 const overlay = document.getElementById('overlay');
 const modal = document.querySelector('.modal');
 
+// only display content if on desktop
+document.addEventListener('DOMContentLoaded', function() {
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  var messageDiv = document.getElementById('non-desktop-message');
+
+  if (isMobile) {
+      messageDiv.style.display = 'block'; // Show message for mobile/tablet
+      document.body.innerHTML = ''; // Clear body content
+      document.body.appendChild(messageDiv); // Only show the message
+  } else {
+      messageDiv.style.display = 'none'; // Hide message for desktop
+  }
+});
+
 
 //Help button:
 
