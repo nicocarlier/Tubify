@@ -29,6 +29,16 @@
   background: none
 }
 
+#non-desktop-message {
+    width: 80%;
+    font-size: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    text-align: center;
+}
+
 .found {
     position: absolute;
     top: 0;
