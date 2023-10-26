@@ -30,6 +30,7 @@
 }
 
 #non-desktop-message {
+    display: none;
     width: 80%;
     font-size: 3rem;
     position: absolute;

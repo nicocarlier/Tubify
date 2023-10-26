@@ -34,15 +34,25 @@ const modal = document.querySelector('.modal');
 
 // only display content if on desktop
 document.addEventListener('DOMContentLoaded', function() {
+  console.log("Script is running");
+  console.log("User Agent:", navigator.userAgent);
+  console.log("Is Mobile:", /iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+
   var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   var messageDiv = document.getElementById('non-desktop-message');
+  var allBodyChildren = document.body.children;
 
   if (isMobile) {
-      messageDiv.style.display = 'block'; // Show message for mobile/tablet
-      document.body.innerHTML = ''; // Clear body content
-      document.body.appendChild(messageDiv); // Only show the message
+      messageDiv.style.display = 'block'; 
+      
+      // Loop through and hide all direct child elements of the body
+      for (let i = 0; i < allBodyChildren.length; i++) {
+          if (allBodyChildren[i] !== messageDiv) {
+              allBodyChildren[i].style.display = 'none';
+          }
+      }
   } else {
-      messageDiv.style.display = 'none'; // Hide message for desktop
+      messageDiv.style.display = 'none'; 
   }
 });
 
