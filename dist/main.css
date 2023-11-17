@@ -655,31 +655,6 @@ input:-internal-autofill-selected {
     color: black;
 }
 
-.AI-output h1{
-    padding: 0 20 20 20px;
-    padding-bottom: 1rem;
-    font-size: 2rem;
-    line-height: 1.5em;
-}
-
-.AI-output h2{
-    padding: 0 0 20 20px;
-    font-size: 1.5rem;
-}
-
-.AI-output p{
-    padding: 0 0 20 20px;
-    font-size: 1rem;
-    padding-bottom: 1rem;
-}
-
-.AI-output li{
-    padding: 0 0 20 20px;
-    font-size: 1rem;
-    padding-bottom: 1rem;
-}
-
-
 .ai-response {
     padding-top: 20px;
 }
@@ -732,6 +707,92 @@ input:-internal-autofill-selected {
     width: 100%;
     justify-content: space-between;
     align-items: center;
+}
+
+
+/* Formating the actual response */
+
+.AI-output {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 20px;
+}
+
+.AI-output h1, .AI-output h2, .AI-output h3, .AI-output h4, .AI-output h5, .AI-output h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+.AI-output h1 {
+    font-size: 2rem;
+}
+
+.AI-output h2 {
+    font-size: 1.75rem;
+}
+
+.AI-output h3 {
+    font-size: 1.5rem;
+}
+
+.AI-output p {
+    margin-bottom: 1rem;
+}
+
+.AI-output ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.AI-output li {
+    margin-bottom: 0.5rem;
+}
+
+.AI-output ul, .AI-output ol {
+    padding-left: 20px;
+    margin-bottom: 1rem;
+}
+
+.AI-output li {
+    margin-bottom: 0.5rem;
+}
+
+.AI-output a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.AI-output a:hover {
+    text-decoration: underline;
+}
+
+.AI-output strong {
+    font-weight: bold;
+}
+
+.AI-output em {
+    font-style: italic;
+}
+
+.AI-output blockquote {
+    margin: 0 0 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #f8f9fa;
+    border-left: 5px solid #007bff;
+}
+
+.AI-output code {
+    background-color: #f8f9fa;
+    padding: 0.2rem 0.4rem;
+    font-family: monospace;
+}
+
+.AI-output pre {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    overflow-x: auto;
 }
 /*!*****************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/loader.css ***!

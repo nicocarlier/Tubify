@@ -271,8 +271,10 @@ logo.addEventListener("click", (e) => {
 
 const copyButton = document.getElementById("copy-button");
 const aiResponse = document.querySelector(".ai-response");
+
+
 copyButton.addEventListener("click", () => {
-  const textToCopy = aiResponse.innerHTML;
+  const textToCopy = getTextWithFormatting(aiResponse);
   const tempTextArea = document.createElement("textarea");
   tempTextArea.value = textToCopy;
   document.body.appendChild(tempTextArea);
@@ -281,3 +283,29 @@ copyButton.addEventListener("click", () => {
   document.body.removeChild(tempTextArea);
   alert("Text copied to clipboard!");
 });
+
+function getTextWithFormatting(element) {
+  let text = "";
+  for (const node of element.childNodes) {
+    switch (node.nodeType) {
+      case Node.TEXT_NODE:
+        // Text node
+        text += node.nodeValue;
+        break;
+      case Node.ELEMENT_NODE:
+        // Element node
+        if (node.tagName === 'BR') {
+          text += '\n';
+        } else if (node.tagName === 'P' || node.tagName === 'DIV' || node.tagName === 'H1' || node.tagName === 'H2' || node.tagName === 'H3' || node.tagName === 'H4' || node.tagName === 'H5' || node.tagName === 'H6') {
+          text += getTextWithFormatting(node) + '\n\n';
+        } else {
+          text += getTextWithFormatting(node);
+        }
+        break;
+      default:
+        // Other nodes (like comments) are ignored
+        break;
+    }
+  }
+  return text.trim();
+}
