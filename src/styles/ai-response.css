@@ -13,7 +13,7 @@
 
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 19px;
+    font-size: 1rem;
     line-height: 1.5em;
 
     /* padding: 25px; */
@@ -22,13 +22,34 @@
     flex-direction: column;
     /* justify-content: space-between; */
     align-items: center;
+
+    color: black;
+}
+
+.AI-output h1{
+    padding: 0 20 20 20px;
+    padding-bottom: 1rem;
+    font-size: 2rem;
+    line-height: 1.5em;
 }
 
 .AI-output h2{
-    padding: 0 20 20 20px;
-    font-size: 30px;
-    /* background: blue; */
+    padding: 0 0 20 20px;
+    font-size: 1.5rem;
 }
+
+.AI-output p{
+    padding: 0 0 20 20px;
+    font-size: 1rem;
+    padding-bottom: 1rem;
+}
+
+.AI-output li{
+    padding: 0 0 20 20px;
+    font-size: 1rem;
+    padding-bottom: 1rem;
+}
+
 
 .ai-response {
     padding-top: 20px;
@@ -69,6 +90,12 @@
 
 #copy-button img {
     height: 100%;
+}
+
+#copy-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
 }
 
 #title-section {

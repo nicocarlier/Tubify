@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var messageDiv = document.getElementById('non-desktop-message');
   var allBodyChildren = document.body.children;
 
-  console.log(marked('**Bold**'))
+  // console.log(marked('**Bold**'))
 
   if (isMobile) {
       messageDiv.style.display = 'block'; 

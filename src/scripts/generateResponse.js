@@ -34,7 +34,7 @@ function generateResponse(prompt, transcript, key){
     })
     .then(data => {
         const markdownTextResponse = data.choices[0].message.content;
-        const header = document.querySelector('.AI-output h2');
+        // const header = document.querySelector('.AI-output h2');
         const responseEle = document.querySelector('.ai-response');
         const aiBlock = document.querySelector('#AI-output');
         const loader = document.querySelector('#ai-loader');
@@ -51,7 +51,7 @@ function generateResponse(prompt, transcript, key){
         const htmlContent = marked(markdownTextResponse);
         responseEle.innerHTML = htmlContent;
         
-        header.innerHTML = title;
+        // header.innerHTML = title;
 
         //! hide loader:
         loader.classList.add('hidden');
