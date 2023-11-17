@@ -3,6 +3,8 @@ import makePrompt from './scripts/makePrompt.js';
 import generateResponse from './scripts/generateResponse.js';
 import oneToTwo from './scripts/oneToTwo.js';
 import twoToOne from './scripts/twoToOne.js';
+// import marked from 'marked';
+// import { marked } from 'marked';
 
 let pageNum = 1;
 let url;
@@ -41,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   var messageDiv = document.getElementById('non-desktop-message');
   var allBodyChildren = document.body.children;
+
+  console.log(marked('**Bold**'))
 
   if (isMobile) {
       messageDiv.style.display = 'block'; 
@@ -193,7 +197,8 @@ generate.addEventListener("click", (e) => {
       key = selected.value;
       standard = false;
     }
-    let prompt = makePrompt(key);
+    // let prompt = makePrompt(key);
+    let prompt = makePrompt(key, transcript);
     pageNum = 3;
     settingsBlock.classList.add('hidden');
     transcriptBlock.classList.add('hidden');
