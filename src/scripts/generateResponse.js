@@ -18,6 +18,7 @@ function generateResponse(prompt, transcript, key){
     title = titleize("Generated " + title)
 
     // fetch(`http://localhost:5001`, {
+        
     fetch("https://tubify-be02a8d8ea61.herokuapp.com/", {
         method: 'POST',
         headers: {
