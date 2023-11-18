@@ -13,11 +13,11 @@ function titleize(str){
     return titleized.join(' ')
 }
 
-function generateResponse(prompt, transcript, key){
-    let title = key || "Text";
-    title = titleize("Generated " + title)
-
     // fetch(`http://localhost:5001`, {
+
+function generateResponse(prompt){
+    // let title = key || "Text";
+    // title = titleize("Generated " + title)
         
     fetch("https://tubify-be02a8d8ea61.herokuapp.com/", {
         method: 'POST',
